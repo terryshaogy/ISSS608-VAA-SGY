@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ISSS608-VAA-SGY",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2\n\n\nhello"
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html",
+    "title": "Take-home",
+    "section": "",
+    "text": "pacman::p_load(tidyverse,haven)\nstu_qqq &lt;- read_sas(\"data/cy08msp_stu_qqq.sas7bdat\")\n\nstu_qqq_SG &lt;- stu_qqq %&gt;%\n  filter(CNT == \"SGP\")\n\nwrite_rds(stu_qqq_SG,\n          \"data/stu_qqq_SG.rds\")\n\nstu_qqq_SG &lt;- \n  read_rds(\"data/stu_qqq_SG.rds\")\n\n\n\n\n\npacman::p_load(ggrepel,\n               patchwork,\n               ggthemes,\n               hrbrthemes,\n               tidyverse)\n\n\n\n\n\nlibrary(dplyr)\n\n\nstu_qqq_SG &lt;- stu_qqq_SG %&gt;%\n  rowwise() %&gt;%\n  mutate(READING_ave = mean(c_across(PV1READ:PV10READ), na.rm = TRUE))\n\n\nstu_qqq_SG &lt;- stu_qqq_SG %&gt;%\n  rowwise() %&gt;%\n  mutate(SCIENCE_ave = mean(c_across(PV1SCIE:PV10SCIE), na.rm = TRUE))\n\n\nstu_qqq_SG &lt;- stu_qqq_SG %&gt;%\n  rowwise() %&gt;%\n  mutate(MATH_ave = mean(c_across(PV1MCUD:PV10MCUD), na.rm = TRUE))"
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-distribution-of-singapore-students-performance-in-mathematics-reading-and-science.",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-distribution-of-singapore-students-performance-in-mathematics-reading-and-science.",
+    "title": "Take-home",
+    "section": "2.1 The distribution of Singapore students’ performance in mathematics, reading, and science.",
+    "text": "2.1 The distribution of Singapore students’ performance in mathematics, reading, and science.\n\nSummary: From the distribution plot provided, reading, math, and science all show a standard normal distribution pattern, indicating that in each subject, the PV of students is concentrated around a central value (around 500 points), and does not show significant bias or outliers. This distribution pattern means that there are a small number of very high or very low achieving students in each subject, while most students’ achievement is clustered around the average.\n\npacman::p_load(ggrepel, patchwork, \n               ggthemes, hrbrthemes,\n               tidyverse) \n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-gender.",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-gender.",
+    "title": "Take-home",
+    "section": "2.2 The relationship between the performances of Math,Reading and Science with different Gender.",
+    "text": "2.2 The relationship between the performances of Math,Reading and Science with different Gender.\n\nSummary: As can be seen from the boxplot, there is little difference between the average scores of male and female students in science, and the average and median scores of male and female students are similar. In reading, women’s average and median scores were slightly higher than men’s. In contrast, when it comes to math scores, men have slightly higher average and median scores than women."
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-school.",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-school.",
+    "title": "Take-home",
+    "section": "2.3 The relationship between the performances of Math,Reading and Science with different School.",
+    "text": "2.3 The relationship between the performances of Math,Reading and Science with different School.\n\nSummary: This dot plot shows that the majority of the schools remain average, but it is true that some schools have higher quality teaching and their students have better results and PV."
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-socioeconomic.",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-socioeconomic.",
+    "title": "Take-home",
+    "section": "2.4 The relationship between the performances of Math,Reading and Science with different Socioeconomic.",
+    "text": "2.4 The relationship between the performances of Math,Reading and Science with different Socioeconomic.\n\nSummary: This plot shows that whether it is science, math or reading, it is related to whether there is money to have food. Students who have enough money to get food will get better grades. These students do not need to think about food. Students who ate for lack of money four or five times a week had lower high scores and higher low scores. These students usually did not have bad grades, but they were also hard to have good grades, indicating that Socioeconomic has a strong influence on performances of Math,Reading and Science."
+  },
+  {
+    "objectID": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-socioeconomic.-1",
+    "href": "Take-home_Ex/Take-home_Ex01/Take-home_Exercise01.html#the-relationship-between-the-performances-of-mathreading-and-science-with-different-socioeconomic.-1",
+    "title": "Take-home",
+    "section": "2.5 The relationship between the performances of Math,Reading and Science with different Socioeconomic.",
+    "text": "2.5 The relationship between the performances of Math,Reading and Science with different Socioeconomic.\n\nSummary: This plot indicates that science, math and reading are all related to students’ parents’ education background. Students with highly educated parents will get higher scores, and such students will have greater advantages, indicating that Socioeconomic has a strong influence on performances of Math,Reading and Science."
+  }
+]
