@@ -15,43 +15,31 @@ pacman::p_load(ggrepel,
 exam_data <- read.csv("data/Exam_data (3).csv")
 ```
 
-## **2.3 Beyond ggplot2 Annotation: ggrepel**
+# **3.0 ggplot2-plot (coordinate)**
+
+## **3.1 Beyond ggplot2 Annotation: ggrepel**
+
+geom_label
 
 ```{r}
-
-ggplot(data = exam_data,
-       aes(MATHS,ENGLISH))+
-  geom_point()+
-  geom_smooth(method=lm,
-              size=0.5)+
-  geom_label(aes(label=ID),
-             hjust=.5,
-             vjust=-.5)+
-  coord_cartesian(xlim = c(0,100),
-                  ylim = c(0,100))+
-  ggtitle("English scores versus Maths scores for Primary 3")
-  
-
-```
-
-### **2.3.1 Working with ggrepel**
-
-```{r}
-ggplot(data = exam_data,
-       aes(MATHS,
-           ENGLISH))+
-  geom_point()+
-  geom_smooth(method=lm,
-              size=0.5)+
-  geom_label(aes(label=ID),
-             fontface="bold")+
+ggplot(data=exam_data, 
+       aes(x= MATHS, 
+           y=ENGLISH)) +
+  geom_point() +
+  geom_smooth(method=lm, 
+              size=0.5) +  
+  geom_label(aes(label = ID), 
+             hjust = .5, 
+             vjust = -.5) +
   coord_cartesian(xlim=c(0,100),
                   ylim=c(0,100)) +
   ggtitle("English scores versus Maths scores for Primary 3")
 ```
 
+geom_label_repel (avoid overlap)
+
 ```{r}
-ggplot(data=exam_data, 
+ggplot(exam_data, 
        aes(x= MATHS, 
            y=ENGLISH)) +
   geom_point() +
@@ -64,53 +52,31 @@ ggplot(data=exam_data,
   ggtitle("English scores versus Maths scores for Primary 3")
 ```
 
-## **2.4 Beyond ggplot2 Themes**
+### **3.2 Working with ggtheme package**
 
 ```{r}
-ggplot(data=exam_data,
-       aes(MATHS))+
-  geom_histogram(bins = 25,
-                 color="grey70",
-                 fill="grey90")+
-  coord_cartesian(xlim = c(0,100),
-                  ylim = c(0,50))+
-  ggtitle("Distribution of Maths scores")
-  
-```
-
-### **2.4.1 Working with ggtheme package**
-
-```{r}
-ggplot(data=exam_data,
-       aes(MATHS))+
-  geom_histogram(bins = 25,
-                 color="grey70",
-                 fill="grey90")+
-  coord_cartesian(xlim = c(0,100),
-                  ylim = c(0,50))+
-  ggtitle("Distribution of Maths scores")+
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
   theme_economist()
-
 ```
-
-### **2.4.2 Working with hrbthems package**
-
-### 
 
 ```{r}
-ggplot(data=exam_data,
-       aes(MATHS))+
-  geom_histogram(bins = 25,
-                 color="grey70",
-                 fill="grey90")+
-  coord_cartesian(xlim = c(0,100),
-                  ylim = c(0,50))+
-  ggtitle("Distribution of Maths scores")+
+ggplot(data=exam_data, 
+             aes(x = MATHS)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of Maths scores") +
   theme_ipsum()
-
 ```
 
-## **2.5 Beyond Single Graph**
+## **3.3 Beyond Single Graph**
 
 ```{r}
 p1 <- ggplot(data=exam_data, 
@@ -121,17 +87,6 @@ p1 <- ggplot(data=exam_data,
                  fill="grey90") + 
   coord_cartesian(xlim=c(0,100)) +
   ggtitle("Distribution of Maths scores")
-```
-
-```{r}
-p2 <- ggplot(data=exam_data, 
-             aes(x = ENGLISH)) +
-  geom_histogram(bins=20, 
-                 boundary = 100,
-                 color="grey25", 
-                 fill="grey90") +
-  coord_cartesian(xlim=c(0,100)) +
-  ggtitle("Distribution of English scores")
 ```
 
 ```{r}
@@ -146,32 +101,18 @@ p3 <- ggplot(data=exam_data,
   ggtitle("English scores versus Maths scores for Primary 3")
 ```
 
-### **2.5.2 Combining two ggplot2 graphs**
-
 ```{r}
-p1 + p2
+p2 <- ggplot(data=exam_data, 
+             aes(x = ENGLISH)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  coord_cartesian(xlim=c(0,100)) +
+  ggtitle("Distribution of English scores")
 ```
 
-### **2.5.3 Combining three ggplot2 graphs**
-
 ```{r}
-(p1 / p2) | p3
-```
-
-### **2.5.5 Creating figure with insert**
-
-```{r}
-p3 + inset_element(p2, 
-                   left = 0.02, 
-                   bottom = 0.7, 
-                   right = 0.5, 
-                   top = 1)
-```
-
-### **2.5.6 Creating a composite figure by using patchwork and ggtheme**
-
-```{r}
-# eval:false
 patchwork <- (p1 / p2) | p3
 patchwork & theme_economist()
 ```
