@@ -569,6 +569,7 @@ p1 + p2 +p3 +p4
 1.  *Each histogram clearly shows the grade distribution, and users can easily understand the general trend of the data.*
 2.  *The addition of mean dotted lines and text labels is helpful for communicating the central location of each distribution, providing a quick reference.*
 3.  *The title of each histogram clearly indicates the type of achievement they represent.*
+4.  Adding the total variable to show more detail.
 
 ### **Aesthetics:**
 
@@ -753,14 +754,15 @@ p4 + p5 +p6 +p20
 
 ```
 
-### **Aesthetics**
-
-*Use contrasting colors (blue histogram and red mean line) to enhance the visual effect, making the mean stand out and easy to identify.*
-
 ### **Clarity:**
 
 1.  *Labels that increase the average value are good for readers to read*
 2.  *Putting the boxplot of the three disciplines together allows the reader to compare them.*
+3.  Adding the total variable to show more detail.
+
+### **Aesthetics**
+
+*Use contrasting colors (blue histogram and red mean line) to enhance the visual effect, making the mean stand out and easy to identify.*
 
 ## 5.3 Bar graph - Expected Education and Subjects
 
@@ -811,8 +813,6 @@ ggplot(data=stu_qqq_SG_3,
 In all the histogram plots, all subjects show that the expected education chosen by students is mainly degree, followed by masters/diploma. This is no surprisingly as due to higher number of singapore residents aged 25 years and above having diploma/degree: [link](https://www.singstat.gov.sg/publications/reference/ebook/population/education-and-literacy). Students who are taking PISA has expectation of going to a university with the current scores they obtained from the various subjects.
 :::
 
-# ***5.3.2 REMAKE***
-
 ## 5.4 **Kernel density estimate plot (**Gender and Socioeconomic Status)
 
 I will examine the relationship between gender and socioeconomic status.
@@ -834,8 +834,6 @@ The density curve for both gender seems to be left-skewed, this suggests that th
 
 Female students has a higher socioeconomic status as compared to male students with the peak more to the right compared to male students. However, male students' socioeconomic status has a higher peak compared to female students.
 :::
-
-5.4.2 REMAKE
 
 ## 5.5 Scatterplot (Socioeconomic Status and Subjects Score)
 

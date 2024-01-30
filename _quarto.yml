@@ -13,6 +13,8 @@ website:
           href: "Hand-on_Ex/Hand-on_Ex02/Hands-on_Exercise02.html"
         - text: "Hands-on Exercise 3"
           href: "Hand-on_Ex/Hand-on_Ex03/Hands-on_Exercise03.html"
+        - text: "Hands-on Exercise 4"
+          href: "Hand-on_Ex/Hand-on_Ex04/Hands-on_Exercise04.html"
         
     - text: "In-class Exercise"
       menu:
@@ -36,7 +38,7 @@ website:
      
 format:
   html:
-    theme: morph
+    theme: journal
     css: styles.css
     toc: true
 
