@@ -12,7 +12,7 @@ pacman::p_load(ggrepel,
 ```
 
 ```{r}
-exam_data <- read.csv("data/Exam_data (3).csv")
+exam_data <- read.csv("data/Exam_data.csv")
 ```
 
 # **3.0 ggplot2-plot (coordinate)**
@@ -115,4 +115,7 @@ p2 <- ggplot(data=exam_data,
 ```{r}
 patchwork <- (p1 / p2) | p3
 patchwork & theme_economist()
+```
+
+```         
 ```
